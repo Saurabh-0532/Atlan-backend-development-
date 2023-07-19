@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+#from .data_transfer import transfer_data_to_google_sheets
 # Create your models here.
 class User(AbstractUser, models.Model):
     email = models.EmailField(unique = True)
@@ -17,6 +17,7 @@ class Questions(models.Model):
     score = models.IntegerField(blank = True, default=0)
     feedback = models.CharField(max_length = 5000, null = True)
     choices = models.ManyToManyField(Choices, related_name = "choices")
+    #transfer_data_to_google_sheets()
 
 class Answer(models.Model):
     answer = models.CharField(max_length=5000)
