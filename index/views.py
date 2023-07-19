@@ -8,6 +8,7 @@ from django.core import serializers
 import json
 import random
 import string
+from django.core.mail import send_mail
 
 # Create your views here.
 def index(request):
@@ -503,6 +504,8 @@ def get_client_ip(request):
     return ip
 
 def submit_form(request, code):
+   
+
     formInfo = Form.objects.filter(code = code)
     #Checking if form exists
     if formInfo.count() == 0:
@@ -537,6 +540,14 @@ def submit_form(request, code):
             "form": formInfo,
             "code": code
         })
+    '''send_mail(
+        "Subject here",
+        "Here is the message.",
+        "enddev02@gmail.com",
+        ["saurabhyadav1280@gmail.com"],
+        fail_silently=False,
+        )'''
+        
 
 def responses(request, code):
     if not request.user.is_authenticated:

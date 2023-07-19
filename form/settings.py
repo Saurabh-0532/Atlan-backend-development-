@@ -128,6 +128,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+EMAIL_HOST= 'smtp.gmail.com'
+EMAIL_HOST= 587
+EMAIL_HOST_USER = 'enddev02@gmail.com'
+EMAIL_HOST_PASSWORD = 'Pointers@02'
+EMAIL_USE_TLS = True
+
 '''SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
