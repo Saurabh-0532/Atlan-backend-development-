@@ -6,4 +6,7 @@ def mailing(request):
                 "enddev02@gmail.com",
                 ["saurabhyadav1280@gmail.com"],
                 fail_silently=False,
+                
+                
+                
                 )
