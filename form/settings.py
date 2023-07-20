@@ -137,8 +137,8 @@ EMAIL_USE_TLS = True
 
 
 # settings.py
-GOOGLE_SHEETS_KEY_FILE = 'Atlan.json'  # Replace with the actual path to your JSON credentials file
-GOOGLE_SHEETS_SHEET_NAME = 'Atlan data'  # Replace with the name of your Google Sheet
+GOOGLE_SHEETS_KEY_FILE = "atlan-project.json"  # Replace with the actual path to your JSON credentials file
+GOOGLE_SHEETS_SHEET_NAME = 'Atlan Project'  # Replace with the name of your Google Sheet
 
 
 '''SECURE_SSL_REDIRECT = True
