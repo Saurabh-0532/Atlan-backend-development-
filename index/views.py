@@ -11,6 +11,7 @@ import string
 from django.core.mail import send_mail
 from .data_transfer import transfer_data_to_google_sheets
 from .data_transfer import get_data_from_sqlite, prepare_data_for_sheets,get_data_from_answers
+from .sms import send_sms_view
 
 # Create your views here.
 def index(request):
@@ -22,6 +23,7 @@ def index(request):
     print(dataaa)
     if dataaa[0] != 'Error':
         transfer_data_to_google_sheets()
+    send_sms_view(request)
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
     forms = Form.objects.filter(creator = request.user)

@@ -140,6 +140,11 @@ EMAIL_USE_TLS = True
 GOOGLE_SHEETS_KEY_FILE = "atlan-project.json"  # Replace with the actual path to your JSON credentials file
 GOOGLE_SHEETS_SHEET_NAME = 'Atlan Project'  # Replace with the name of your Google Sheet
 
+# settings.py
+TWILIO_ACCOUNT_SID = 'AC5bfb3f8c7f1feb81bc322d12852d37e4'
+TWILIO_AUTH_TOKEN = 'f3c5d7f16f2c6fd8f5f16dbb9b50b508'
+TWILIO_PHONE_NUMBER = '+14322555036'  # The Twilio phone number you purchased
+
 
 '''SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
