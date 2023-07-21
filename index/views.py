@@ -10,15 +10,18 @@ import random
 import string
 from django.core.mail import send_mail
 from .data_transfer import transfer_data_to_google_sheets
-from .data_transfer import get_data_from_sqlite, prepare_data_for_sheets
+from .data_transfer import get_data_from_sqlite, prepare_data_for_sheets,get_data_from_answers
 
 # Create your views here.
 def index(request):
     get_dat = get_data_from_sqlite()
-    print(get_dat)
+    #print(get_dat)
+    answers = get_data_from_answers()
+    #print(answers)
     dataaa = prepare_data_for_sheets(get_dat)
     print(dataaa)
-    transfer_data_to_google_sheets()
+    if dataaa[0] != 'Error':
+        transfer_data_to_google_sheets()
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
     forms = Form.objects.filter(creator = request.user)
