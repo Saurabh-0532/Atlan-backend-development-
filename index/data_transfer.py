@@ -14,7 +14,7 @@ def get_data_from_sqlite():
 def get_data_from_answers():        #fetching the values from the index_answer table or from Answer model
     res = Answer.objects.all()
     return res
-
+last_enrty_of_sheet =[0]
 def prepare_data_for_sheets(data):
     prepared_data = []
     row = []
@@ -25,8 +25,16 @@ def prepare_data_for_sheets(data):
     res = answer_to_return_gsheet()
     for ans in res:
         prepared_data.append(ans)
+    #print(prepared_data[len(prepared_data)-1])
+    #last_enrty_of_sheet = prepared_data[len(prepared_data)-1]
     return prepared_data
 
+def content_for_sms():
+    last_enrty_of_sheet =[0]
+    get_dat = get_data_from_sqlite()
+    last_enrty_of_sheet = prepare_data_for_sheets(get_dat)
+    #print(last_enrty_of_sheet[len(last_enrty_of_sheet)-1])
+    return last_enrty_of_sheet[len(last_enrty_of_sheet)-1]
     '''ans_obj = get_data_from_answers()
     col_len = 0
     length_row= 0

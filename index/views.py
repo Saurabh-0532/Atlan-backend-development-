@@ -20,7 +20,7 @@ def index(request):
     answers = get_data_from_answers()
     #print(answers)
     dataaa = prepare_data_for_sheets(get_dat)
-    print(dataaa)
+    #print(dataaa)
     if dataaa[0] != 'Error':
         transfer_data_to_google_sheets()
     #send_sms_view(request)
@@ -518,16 +518,22 @@ def get_client_ip(request):
     return ip
 
 def submit_form(request, code):
-   
-
+    #print("in submit form")
+    
     formInfo = Form.objects.filter(code = code)
     #Checking if form exists
-    #send_sms_view(request)
+    
     
     if formInfo.count() == 0:
         return HttpResponseRedirect(reverse('404'))
-    else: formInfo = formInfo[0]
+    else: 
+        formInfo = formInfo[0]
+       
+
+        
+
     if formInfo.authenticated_responder:
+        
         if not request.user.is_authenticated:
             return HttpResponseRedirect(reverse("login"))
     if request.method == "POST":
@@ -543,7 +549,7 @@ def submit_form(request, code):
                 response = Responses(response_code = code, response_to = formInfo, responder_ip = get_client_ip(request), responder_email=request.POST["email-address"])
                 response.save()
         for i in request.POST:
-            #Excluding csrf token
+            
             if i == "csrfmiddlewaretoken" or i == "email-address":
                 continue
             question = formInfo.questions.get(id = i)
@@ -552,10 +558,15 @@ def submit_form(request, code):
                 answer.save()
                 response.response.add(answer)
                 response.save()
+        send_sms_view(request)
+        
+
         return render(request, "index/form_response.html", {
             "form": formInfo,
             "code": code
         })
+    
+    #send_sms_view(request)
     '''send_mail(
         "Subject here",
         "Here is the message.",
@@ -647,6 +658,7 @@ def response(request, code, response_code):
     })
 
 def edit_response(request, code, response_code):
+    #send_sms_view(request)
     formInfo = Form.objects.filter(code = code)
     #Checking if form exists
     if formInfo.count() == 0:
@@ -760,8 +772,8 @@ def customer_feedback_template(request):
         form.questions.add(suggestion)
         form.questions.add(name)
         form.questions.add(email)
-        send_sms_view(request)
-        print("Hello")
+        #end_sms_view(request)
+        
         return JsonResponse({"message": "Sucess", "code": code})
 
 def event_registration_template(request):
