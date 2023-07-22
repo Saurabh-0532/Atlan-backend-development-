@@ -3,11 +3,7 @@
 
 <details>
 <summary>
-More screenshots
-</summary>
 
-
-##### For the best experience, please use a device with a width of at least 350p
 </details>
 ## Built using:
 - Python with Django framework and Jinja templating language
