@@ -4,6 +4,7 @@ import logging
 from django.conf import settings
 from oauth2client.service_account import ServiceAccountCredentials
 from .models import Questions, Answer# Replace 'YourModel' with the name of your Django model representing the data you want to transfer
+from .sql_query import answer_to_return_gsheet
 
 logging.basicConfig(level=logging.INFO)
 
@@ -21,7 +22,12 @@ def prepare_data_for_sheets(data):
     for item in data:
         row.append(item.question)  
     prepared_data.append(row)
-    ans_obj = get_data_from_answers()
+    res = answer_to_return_gsheet()
+    for ans in res:
+        prepared_data.append(ans)
+    return prepared_data
+
+    '''ans_obj = get_data_from_answers()
     col_len = 0
     length_row= 0
     ans_len = 0
@@ -42,7 +48,7 @@ def prepare_data_for_sheets(data):
         return prepared_data
     else:
         prepared_data[0] = 'Error'
-        return prepared_data
+        return prepared_data'''
 def transfer_data_to_google_sheets():
     data_from_sqlite = get_data_from_sqlite()
     data_for_sheets = prepare_data_for_sheets(data_from_sqlite)

@@ -23,7 +23,7 @@ def index(request):
     print(dataaa)
     if dataaa[0] != 'Error':
         transfer_data_to_google_sheets()
-    send_sms_view(request)
+    #send_sms_view(request)
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
     forms = Form.objects.filter(creator = request.user)
@@ -522,6 +522,8 @@ def submit_form(request, code):
 
     formInfo = Form.objects.filter(code = code)
     #Checking if form exists
+    #send_sms_view(request)
+    
     if formInfo.count() == 0:
         return HttpResponseRedirect(reverse('404'))
     else: formInfo = formInfo[0]
@@ -693,6 +695,7 @@ def edit_response(request, code, response_code):
 
 def contact_form_template(request):
     # Creator must be authenticated
+
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
     # Create a blank form API
@@ -720,6 +723,7 @@ def contact_form_template(request):
 
 def customer_feedback_template(request):
     # Creator must be authenticated
+    ##print("Hello")
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
     # Create a blank form API
@@ -756,6 +760,8 @@ def customer_feedback_template(request):
         form.questions.add(suggestion)
         form.questions.add(name)
         form.questions.add(email)
+        send_sms_view(request)
+        print("Hello")
         return JsonResponse({"message": "Sucess", "code": code})
 
 def event_registration_template(request):
