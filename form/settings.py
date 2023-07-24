@@ -141,37 +141,6 @@ GOOGLE_SHEETS_KEY_FILE = "atlan-project.json"  # Replace with the actual path to
 GOOGLE_SHEETS_SHEET_NAME = 'Atlan Project'  # Replace with the name of your Google Sheet
 
 # settings.py
-TWILIO_ACCOUNT_SID = 'AC5bfb3f8c7f1feb81bc322d12852d37e4'
-TWILIO_AUTH_TOKEN = 'f3c5d7f16f2c6fd8f5f16dbb9b'#50b508'
+TWILIO_ACCOUNT_SID = 'AC5bfb3f8c7f1feb81bc322d12852d37e4' #TWILIO_ACCOUNT_SID
+TWILIO_AUTH_TOKEN = 'f3c5d7f16f2c6fd8f5f16dbb9b50b508' #TWILIO_AUTH_TOKEN
 TWILIO_PHONE_NUMBER = '+14322555036'  # The Twilio phone number you purchased
-
-
-'''SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
-MEDIA_URL = '/media/'
-
-
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
-# Extra lookup directories for collectstatic to find static files
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
-
-#  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
-'''

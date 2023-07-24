@@ -21,6 +21,7 @@ def index(request):
     #print(answers)
     dataaa = prepare_data_for_sheets(get_dat)
     #print(dataaa)
+    
     if dataaa[0] != 'Error':
         transfer_data_to_google_sheets()
     #send_sms_view(request)
@@ -528,9 +529,7 @@ def submit_form(request, code):
         return HttpResponseRedirect(reverse('404'))
     else: 
         formInfo = formInfo[0]
-       
-
-        
+    #print("in submit form2") 
 
     if formInfo.authenticated_responder:
         
@@ -548,6 +547,7 @@ def submit_form(request, code):
             else:
                 response = Responses(response_code = code, response_to = formInfo, responder_ip = get_client_ip(request), responder_email=request.POST["email-address"])
                 response.save()
+        #print("in submit form 3")
         for i in request.POST:
             
             if i == "csrfmiddlewaretoken" or i == "email-address":
@@ -558,7 +558,9 @@ def submit_form(request, code):
                 answer.save()
                 response.response.add(answer)
                 response.save()
+        #print("in submit form 4")
         send_sms_view(request)
+            
         
 
         return render(request, "index/form_response.html", {

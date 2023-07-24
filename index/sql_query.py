@@ -3,19 +3,6 @@ def answer_to_return_gsheet():
     import sqlite3
     conn = sqlite3.connect('db.sqlite3')
 
-    ''''c = conn.cursor()
-    d = conn.cursor()
-    d.execute("SELECT id FROM index_questions")
-    f = d.fetchall()
-    print(len(f))
-    x = int(f[0][0])
-    print(x)
-    sql_query = f"SELECT index_answer.answer FROM index_answer WHERE index_answer.answer_to_id = {x}"
-    #c.execute("SELECT index_answer.answer FROM index_answer WHERE  index_answer.answer_to_id == {x}")
-    c.execute(sql_query)
-    res =c.fetchall()
-    for i in range(0,5):
-        print(res[i][0])'''
     question_obj = conn.cursor()
     answer_obj = conn.cursor()
 
@@ -46,7 +33,7 @@ def return_value_sms():
     if(len(ques_ids) != 0 ):
         idvalue = ques_ids[0][0]
         
-        print(idvalue)
+        #print(idvalue)
         answ_obj = conn.cursor()
         ans_query = f"SELECT answer FROM index_answer WHERE answer_to_id = {idvalue}"
         answ_obj.execute(ans_query)

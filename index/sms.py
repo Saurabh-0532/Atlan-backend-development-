@@ -30,16 +30,12 @@ def send_sms_view(request):
     total_message = ''
     phone_no = return_value_sms()
     #print(content)
+   
     x = ' '.join(content)
-    total_message = "welcomw to atlan ur detail are : " + x
+    total_message = "welcome to atlan ur detail are : " + x
     to_phone_number = phone_no# Replace with the recipient's phone number
     message = total_message
     
-    print(message)
+    #print(message)
     send_sms(to_phone_number, message)
-    # Send the SMS
-    '''if send_sms(to_phone_number, message):
-        return render(request, 'success.html')
-    else:
-        return render(request, 'error.html')'''
 

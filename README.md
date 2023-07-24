@@ -1,9 +1,14 @@
-#Atlan Demo From
+# Google Forms CLONE
 
 
 <details>
 <summary>
+More screenshots
+</summary>
 
+![Google Forms clone demo](https://drive.google.com/uc?export=view&id=1QhPVWHXKApcv5V6FzrHRzut7a5-1Mgp4)
+![Google Forms clone demo](https://drive.google.com/uc?export=view&id=1Nwz642ORdTCd6KdsaN28Tt142K3wH-pt)
+##### For the best experience, please use a device with a width of at least 350p
 </details>
 ## Built using:
 - Python with Django framework and Jinja templating language
@@ -20,5 +25,6 @@
 - You project will be accessible in your localhost or local network.
 
 ## Deployment
+For deployment, open `form/settings.py` file and uncomment code from line 131 to 159.
 
 ## License
