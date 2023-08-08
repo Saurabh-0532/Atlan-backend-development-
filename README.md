@@ -25,7 +25,7 @@ More screenshots
 - You project will be accessible in your localhost or local network.
 
 ## Deployment
-For deployment open the pdf 'design specification 'in the folder name 'Documents' 
+For deployment open the pdf 'design specification' in the folder name 'Documents' 
 
 
 ## License
