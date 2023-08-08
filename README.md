@@ -25,6 +25,7 @@ More screenshots
 - You project will be accessible in your localhost or local network.
 
 ## Deployment
-For deployment, open `form/settings.py` file and uncomment code from line 131 to 159.
+For deployment open the pdf 'design specification 'in the folder name 'Documents' 
+
 
 ## License
