@@ -26,6 +26,9 @@ More screenshots
 
 ## Deployment
 For deployment open the pdf 'design specification' in the folder name 'Documents' 
-
+## Note 
+1. For running Google sheet API uncomment the code from line 18 to line 23 under  and line 499 inside the "def view_form(request, code)" in ../index/views
+2. For running SMS API un comment the line 562 inside the "def submit_form(request, code)" function in ../index/views
+3. Both API will work only if you set up the credential in setting fils i.e. ../form/settings folder from line 140 to line 146
 
 ## License
